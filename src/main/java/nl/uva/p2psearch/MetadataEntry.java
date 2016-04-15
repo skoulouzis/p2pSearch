@@ -9,7 +9,7 @@ package nl.uva.p2psearch;
  *
  * @author S. Koulouzis
  */
-class Entry implements EntryI {
+class MetadataEntry {
 
     /**
      * 
@@ -94,8 +94,7 @@ class Entry implements EntryI {
     /**
      * @return the contentHash
      */
-    @Override
-    public String getContentHash() {
+    public String getID() {
         return contentHash;
     }
 

@@ -12,7 +12,7 @@ import net.tomp2p.peers.Number160;
  *
  * @author S. Koulouzis
  */
-class InvertedIndexEntry implements EntryI {
+class InvertedIndexEntry {
 
     /**
      *
@@ -25,11 +25,11 @@ class InvertedIndexEntry implements EntryI {
     /**
      *
      */
-    private final List<Number160> entryIDs;
-    private final Integer tf;
+    private final List<Number160> metadataEntryIDs;
+    private Integer tf;
 
     public InvertedIndexEntry(final String contentHash, final String term, final Integer tf, final List<Number160> entryIDs) {
-        this.entryIDs = entryIDs;
+        this.metadataEntryIDs = entryIDs;
         this.term = term;
         this.contentHash = contentHash;
         this.tf = tf;
@@ -45,12 +45,22 @@ class InvertedIndexEntry implements EntryI {
     /**
      * @return the entryIDs
      */
-    public List<Number160> getEntryIDs() {
-        return entryIDs;
+    public List<Number160> getMetadataEntryIDs() {
+        return metadataEntryIDs;
     }
 
-    @Override
-    public String getContentHash() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public String getID() {
+        return contentHash;
+    }
+
+    /**
+     * @return the tf
+     */
+    public Integer getTf() {
+        return tf;
+    }
+
+    void setTF(Integer tf) {
+        this.tf = tf;
     }
 }
